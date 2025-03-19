@@ -17,7 +17,7 @@ const is_menu_active = ref(false)
     <div class="w-full min-h-screen bg-gray-200/30">
         <div class="w-full center">
             <div class="w-custom flex items-start justify-between py-[2rem] max-[1250px]:py-4">
-                <div class="w-12/55 max-[1250px]:w-[300px] max-[1250px]:absolute transition-custom max-[1250px]:top-0 max-[1250px]:z-5 max-[1250px]:h-screen max-[1250px]:rounded-none h-[calc(100vh-4rem)] sticky top-[2rem] bg-white rounded-xl p-5 flex items-center justify-between gap-20 flex-col overflow-y-auto scrollbar-hide"
+                <div class="w-12/55 max-[1250px]:w-[300px] max-[1250px]:fixed transition-custom max-[1250px]:top-0 max-[1250px]:z-5 max-[1250px]:h-screen max-[1250px]:rounded-none h-[calc(100vh-4rem)] sticky top-[2rem] bg-white rounded-xl p-5 flex items-center justify-between gap-20 flex-col overflow-y-auto scrollbar-hide"
                     :class="{
                         'max-[1250px]:-right-0': is_menu_active,
                         'max-[1250px]:-right-[calc(100vw+100px)]': !is_menu_active,
