@@ -47,13 +47,13 @@ const cart_redirect = () => {
             </svg>
             <span class="text-gray-500 font-medium text-[15px]">منو</span>
         </div>
-        <div @click="cart_redirect" class="w-1/4 flex items-center justify-between group flex-col gap-[6px] py-3 pb-2 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="size-[21px] fill-gray-500" viewBox="0 0 24 24" width="512"
+        <div @click="cart_redirect" class="w-1/4 flex items-center justify-between group flex-col gap-[6px] py-3 pb-2 cursor-pointer" :class="{ 'active': router.path.startsWith('/cart') }">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-[21px] fill-gray-500 transition-custom group-[.active]:fill-theme" viewBox="0 0 24 24" width="512"
                 height="512">
                 <path
                     d="M23.27,9.03c-.57-.66-1.4-1.03-2.27-1.03h-.09C20.41,3.51,16.59,0,11.97,0S3.52,3.51,3.02,8h-.05c-.87,0-1.7,.38-2.27,1.03C.13,9.69-.12,10.56,0,11.42l1.06,7.42c.42,2.94,2.97,5.15,5.94,5.15h9.97c2.97,0,5.52-2.21,5.94-5.15l1.06-7.42c.12-.86-.13-1.73-.7-2.39ZM11.97,2c3.52,0,6.44,2.61,6.93,6H5.04c.49-3.39,3.41-6,6.93-6Zm10.02,9.14l-1.06,7.42c-.28,1.96-1.98,3.43-3.96,3.43H7c-1.98,0-3.68-1.48-3.96-3.43l-1.06-7.42c-.04-.29,.04-.57,.23-.8,.19-.22,.46-.35,.76-.35H21c.29,0,.56,.12,.75,.34,.19,.22,.28,.51,.23,.8Z" />
             </svg>
-            <span class="text-gray-500 font-medium text-[15px]">سبد خرید</span>
+            <span class="text-gray-500 font-medium text-[15px] transition-custom group-[.active]:text-theme">سبد خرید</span>
         </div>
         <div class="w-1/4 flex items-center justify-between group flex-col gap-[6px] py-3 pb-2"
             v-if="userStore.user_loading">
