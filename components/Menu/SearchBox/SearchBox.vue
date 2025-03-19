@@ -40,30 +40,12 @@ const backspaceHandler = () => {
     }
 }
 
-const handleEnter = () => {
-
-    if (search.value.length <= 0) {
-        toast.error("لطفا عبارت جست و جو را وارد کنید")
-        return
-    }
-
-    if (total.value <= 4) {
-        toast.error("متاسفانه محصول بیشتری برای نمایش وجود ندارد")
-        return
-    }
-
-    isActive.value = false
-    return navigateTo({ path: '/products', query: { search: search.value } })
-}
-
 const remove_search = () => {
     isActive.value = false
     search.value = ''
     total.value = 0
     products.value = []
 }
-
-let debounceTimeout = null;
 
 
 </script>
@@ -81,7 +63,7 @@ let debounceTimeout = null;
                 </svg>
                 <input type="text" class="w-full h-full outline-none text-title text-[14px]"
                     placeholder="دنبال چی میگردی...؟" v-model="search" @input="send_request" @input.backspace="backspaceHandler"
-                    @keydown.backspace="backspaceHandler" @keydown.enter="handleEnter">
+                    @keydown.backspace="backspaceHandler">
             </div>
             <Transition>
                 <div class="w-full py-4 px-3" v-if="isActive">

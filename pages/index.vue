@@ -224,7 +224,7 @@ onMounted(async () => {
                             class="first:rounded-r-xl border-l-transparent last:rounded-l-xl last:border-l-gray-100 max-[1300px]:w-[250px]" />
                     </template>
                 </div>
-                <nuxt-link to="/" :to="{ path: '/products', query: { orderBy: 'populars' } }"
+                <nuxt-link :to="{ path: '/products', query: { orderBy: 'populars' } }"
                     class="absolute max-[1300px]:relative max-[1300px]:-mr-[153.5px] whitespace-nowrap center gap-1 -left-[92px] px-7 py-1 rounded-t-xl bg-gray-200 text-[#485967] text-[15px] font-bold transform-[rotate(-90deg)]">
                     مشاهده همه
                     <svg class="size-[19px] fill[#485967] transform-[translateY(-1px)]">
