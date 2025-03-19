@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* fonts */
+@font-face {
+    font-family: 'yekan_regular';
+    src: url('~/assets/fonts/yekanBakh/Yekan-Bakh-FaNum-04-Regular.woff');
+}
+
+@font-face {
+    font-family: 'yekan_medium';
+    src: url('~/assets/fonts/yekanBakh/Yekan-Bakh-FaNum-05-Medium.woff');
+}
+
+@font-face {
+    font-family: 'yekan_bold';
+    src: url('~/assets/fonts/yekanBakh/Yekan-Bakh-FaNum-06-Bold.woff');
+}
+
+@font-face {
+    font-family: 'yekan_heavy';
+    src: url('~/assets/fonts/yekanBakh/Yekan-Bakh-FaNum-07-Heavy.woff');
+}
+
+@font-face {
+    font-family: 'yekan_fat';
+    src: url('~/assets/fonts/yekanBakh/Yekan-Bakh-FaNum-08-Fat.woff');
+}
+
+:root {
+    --theme: #ed1944;
+    --theme-100: #ed194311;
+    --theme-150: #ed194323;
+    --theme-200: #ed194331;
+    --shadow-theme-150: 0 0 85px 0 var(--theme-150);
+    --shadow-theme-200: 0 0 35px 0 var(--theme-200);
+    --title: #334155;
+    --green: #00c073;
+    --green-100: #3bce931e;
+    --width: 1300px;
+    --transition: 0.1s ease-in-out;
+    --slider-connect-bg: var(--theme);
+    --slider-handle-shadow: none;
+    --slider-handle-bg: var(--theme);
+}
+
+body {
+    direction: rtl;
+}
+
+
+* {
+    outline: none;
+}
+
+/* config */
+@theme {
+    --font-regular: 'yekan_regular';
+    --font-medium: 'yekan_medium';
+    --font-bold: 'yekan_bold';
+    --font-heavy: 'yekan_heavy';
+    --font-fat: 'yekan_fat';
+    --color-theme: var(--theme);
+    --color-green: var(--green);
+    --color-green-100: var(--green-100);
+    --color-theme-100: var(--theme-100);
+    --color-theme-200: var(--theme-200);
+    --shadow-theme-150: var(--shadow-theme-150);
+    --shadow-theme-200: var(--shadow-theme-200);
+    --color-title: var(--title);
+    --shadow-custom: 0px 4px 60px rgba(0, 0, 0, 0.089);
+}
+
+@layer components {
+    .btn-theme {
+        @apply cursor-pointer bg-theme text-white rounded-md px-4 pb-[0.1rem] h-[40px] shadow-theme-200 font-medium text-[14px] gap-2 border border-transparent hover:bg-white hover:border-theme hover:text-theme
+    }
+
+    .btn-title {
+        @apply h-[40px] rounded-md border border-title px-6 shadow-sm text-title  hover:bg-title hover:text-white  font-medium text-[15px] cursor-pointer
+    }
+}
+
+@layer utilities {
+    .w-custom {
+        width: var(--width);
+    }
+
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .transition-custom {
+        transition: var(--transition);
+    }
+
+    .scrollbar-hide {
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+
+/* transitions */
+
+.v-enter-active,
+.v-leave-active {
+    transition: 0.1s ease-in-out;
+    opacity: 1;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+/* swiper */
+.pagination-handler {
+    gap: 1px;
+}
+
+.pagination-handler span {
+    background-color: #000000d8 !important;
+    border-radius: 80px !important;
+    width: 7px !important;
+    height: 7px !important;
+    transition: var(--transition) !important;
+    cursor: pointer;
+}
+
+.pagination-handler span.swiper-pagination-bullet-active {
+    background-color: white !important;
+    width: 16px !important;
+}
+
+
+.slider-overflow-visible .swiper {
+    overflow: visible !important;
+}
+
+/* responsive */
+
+@media(max-width: 1350px) {
+    :root {
+        --width: 96%;
+    }
+}
