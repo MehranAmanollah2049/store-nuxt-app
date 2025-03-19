@@ -11,7 +11,7 @@ let phone = ref(authStore.phone_number || '')
 const submitHandler = () => {
 
     if (phone.value == '' || phone.value.length != 11) {
-        toast.error("لطفا یک شماره موبایل مغتبر وارد کنید")
+        toast.error("لطفا یک شماره موبایل معتبر وارد کنید")
         return
     }
 

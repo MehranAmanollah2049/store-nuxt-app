@@ -148,7 +148,7 @@ const payment_handler = () => {
                 <span class="text-[17px] font-bold text-title" v-else>{{ total_discount.toLocaleString() }} تومان</span>
             </div>
             <div class="w-1/4 flex items-start justify-center flex-col max-[800px]:w-2/4 max-[400px]:w-full">
-                <p class="text-[15px] font-medium text-gray-400">پرداخت شده</p>
+                <p class="text-[15px] font-medium text-gray-400"> {{ data.status == 'پرداخت نشده' ? 'قابل پرداخت' : 'پرداخت شده ' }} </p>
                 <span class="w-[60px] h-[13px] bg-gray-200 animation-pluse rounded-full mt-1" v-if="isLoading"></span>
                 <span class="text-[17px] font-bold text-title" v-else>{{ total_payment.toLocaleString() }} تومان</span>
             </div>
