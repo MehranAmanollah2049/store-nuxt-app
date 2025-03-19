@@ -119,7 +119,7 @@ onMounted(async () => {
                         class="font-fat text-theme relative after:content-[''] after:absolute after:w-full after:h-[6px] after:bottom-[6px] after:bg-theme-200 after:transform-[skew(-8deg)] after:right-0">
                         جدیدترین
                     </span>
-                    محصولات
+                    کالا های دیجینو
                 </div>
             </div>
             <div
@@ -152,7 +152,7 @@ onMounted(async () => {
     </div>
     <!-- discount products -->
     <div class="w-full center py-15 relative">
-        <div class="w-full center h-[300px] max-[1090px]:h-[430px] bg-theme absolute -z-1 top-0">
+        <div class="w-full center h-[300px] max-[1090px]:h-[380px] bg-theme absolute -z-1 top-0">
             <svg xmlns="http://www.w3.org/2000/svg" id="beast" viewBox="0 0 1000 100" preserveAspectRatio="none"
                 class="w-full h-[60px] fill-theme absolute -top-[60px] max-[800px]:w-[calc(100%+100px)]">
                 <path d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"></path>
@@ -209,7 +209,7 @@ onMounted(async () => {
                         class="font-fat text-theme relative after:content-[''] after:absolute after:w-full after:h-[6px] after:bottom-[6px] after:bg-theme-200 after:transform-[skew(-8deg)] after:right-0">
                         محبوب ترین
                     </span>
-                    محصولات
+                    کالا های دیجینو
                 </div>
             </div>
             <div

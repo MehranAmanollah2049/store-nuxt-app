@@ -36,8 +36,7 @@ onMounted(() => {
 
 <template>
     <div class="w-full center bg-gradient-to-l from-title to-title p-2">
-        <div class="w-custom flex items-center justify-center font-medium text-white text-[15px]"> پروژه تمرینی فروشگاه
-            آنلاین 🎉</div>
+        <div class="w-custom flex items-center justify-center font-medium text-white text-[15px]">پروژه تمرینی فروشگاه دیجینو 🎉</div>
     </div>
     <nav class="w-full center flex-col bg-white border-b border-gray-200 sticky top-0 z-200">
         <div class="w-custom h-15 pt-1 max-[800px]:pb-1 flex items-center justify-between relative bg-white z-2">
