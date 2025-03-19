@@ -18,7 +18,7 @@ const isActive = ref(false)
 const submitHandler = () => {
 
     if (phone.value == '' || phone.value.length != 11) {
-        return toast.error("لطفا یک شماره موبایل مغتبر وارد کنید")
+        return toast.error("لطفا یک شماره موبایل معتبر وارد کنید")
     }
 
     if (userStore.user.phone == phone.value) {
