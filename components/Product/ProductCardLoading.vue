@@ -1,6 +1,6 @@
 
 <template>
-    <div class="w-full h-[390px] flex items-start justify-center flex-col gap-3 border-4 border-white px-1">
+    <div class="w-full h-[390px] max-[470px]:h-[315px] flex items-start justify-center flex-col gap-3 border-4 border-white px-1">
         <div class="w-full h-[220px] rounded-lg bg-gray-200 animate-pulse max-[470px]:h-[145px]"></div>
         <div class="w-full h-[10px] rounded-full bg-gray-200 animate-pulse mt-2"></div>
         <div class="w-[50%] h-[10px] rounded-full bg-gray-200 animate-pulse"></div>
