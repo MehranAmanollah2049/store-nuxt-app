@@ -2,10 +2,12 @@
 import toast from 'vue-toast-next'
 import { useUser } from '~/stores/auth/useUser'
 
+
 const userStore = useUser()
 const router = useRoute()
 
 const menu_data = inject("menu_data");
+const menu_data_loading = inject("menu_data_loading");
 
 const bottomSheet = ref(null)
 
@@ -98,7 +100,7 @@ const cart_redirect = () => {
         <div class="w-full center flex-col">
             <Logo />
             <div class="w-full flex items-center justify-start flex-col gap-[7px] pb-7">
-                <MenuBrItemDrp v-model:sheet="bottomSheet" title="دسته بندی" keyItem="category"
+                <MenuBrItemDrp :loading="menu_data_loading" v-model:sheet="bottomSheet" title="دسته بندی" keyItem="category"
                     :list="menu_data.categorys">
                     <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
                         class="size-[16px] fill-title transform-[translateY(-1px)] ml-1">
@@ -108,7 +110,7 @@ const cart_redirect = () => {
                     </svg>
                 </MenuBrItemDrp>
 
-                <MenuBrItemDrp v-model:sheet="bottomSheet" title="برند ها" keyItem="brand" :list="menu_data.brands">
+                <MenuBrItemDrp :loading="menu_data_loading" v-model:sheet="bottomSheet" title="برند ها" keyItem="brand" :list="menu_data.brands">
                     <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"
                         class="size-[16px] fill-title transform-[translateY(-1px)]">
                         <path

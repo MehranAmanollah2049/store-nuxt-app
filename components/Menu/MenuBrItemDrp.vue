@@ -4,6 +4,10 @@ defineProps({
     keyItem: String,
     title: String,
     list: Array,
+    loading: {
+        type: Boolean,
+        default: false
+    }
 })
 
 const sheet = defineModel('sheet')
@@ -46,7 +50,13 @@ const toggle_drp = () => {
         </div>
         <div class="w-full overflow-hidden transition-custom" :style="{ height: Height + 'px' }">
             <div class="w-full flex items-start pt-2 justify-center flex-col gap-1" ref="content">
-                <nuxt-link @click="sheet.close()" v-for="item in list" :to="`/products?${keyItem}=${item.id}`"
+                <template v-if="loading">
+                    <div class="w-full h-[40px] center">
+                        <Loading />
+                    </div>
+                </template>
+                <template v-else>
+                    <nuxt-link @click="sheet.close()" v-for="item in list" :to="`/products?${keyItem}=${item.id}`"
                         class="w-full group/item font-medium text-gray-500 text-[15px] py-2 px-3 hover:bg-gray-100/80 hover:text-theme flex items-center justify-between transition-custom whitespace-nowrap gap-2">
                         {{ item.title }}
                         <svg class="size-4 fill-gray-400 transition-custom group-hover/item:fill-theme">
@@ -59,6 +69,8 @@ const toggle_drp = () => {
                             </use>
                         </svg>
                     </nuxt-link>
+                </template>
+
             </div>
         </div>
     </div>
