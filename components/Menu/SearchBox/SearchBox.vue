@@ -69,7 +69,7 @@ const remove_search = () => {
                 <div class="w-full py-4 px-3" v-if="isActive">
                     <div class="w-full flex items-center justify-between">
                         <p class="text-[14px] text-gray-500">{{ search.length != 0 ? total : 0 }} کالا</p>
-                        <nuxt-link :to="{ path: '/products', query: { search } }" class="text-theme text-[14px] center"
+                        <nuxt-link :to="{ path: '/products', query: { search } }" @click="isActive = false" class="text-theme text-[14px] center"
                             v-if="search.length != 0 && total > 4">
                             مشاهده همه
                             <svg class="size-4 fill-theme transform-[translateY(-1px)]">
