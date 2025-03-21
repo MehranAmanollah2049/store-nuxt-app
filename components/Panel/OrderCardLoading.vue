@@ -14,8 +14,10 @@
             <div class="w-[60px] h-[10px] bg-gray-200 animation-pluse rounded-full"></div>
         </div>
         <div class="w-full bg-gray-100/60 rounded-lg p-4 flex items-center justify-start flex-wrap gap-4">
-            <div class="size-[110px] bg-gray-200 animation-pluse rounded-lg"></div>
-            <div class="size-[110px] bg-gray-200 animation-pluse rounded-lg"></div>
+            <div class="w-[calc(100%/4-0.8rem)] h-[110px] bg-gray-200 animation-pluse rounded-lg max-[550px]:w-[calc(100%/2-0.5rem)]"></div>
+            <div class="w-[calc(100%/4-0.8rem)] h-[110px] bg-gray-200 animation-pluse rounded-lg max-[550px]:w-[calc(100%/2-0.5rem)]"></div>
+            <div class="w-[calc(100%/4-0.8rem)] h-[110px] bg-gray-200 animation-pluse rounded-lg max-[550px]:w-[calc(100%/2-0.5rem)]"></div>
+            <div class="w-[calc(100%/4-0.8rem)] h-[110px] bg-gray-200 animation-pluse rounded-lg max-[550px]:w-[calc(100%/2-0.5rem)]"></div>
         </div>
     </div>
 </template>

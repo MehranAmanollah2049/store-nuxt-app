@@ -22,7 +22,7 @@ watch(() => props.product.likes , () => load_likes(props.product.likes))
         <div class="w-full h-[200px] max-[470px]:h-[145px] center">
             <div class="absolute top-4 right-4 center cursor-pointer" @click="handleLike">
                 <svg class="size-[23px]" v-if="!isLikeLoading" :class="{
-                    'stroke-title': !has_likes,
+                    'stroke-title fill-white': !has_likes,
                     'fill-theme': has_likes,
                 }" fill="none" width="13" height="11" viewBox="0 0 13 11" xmlns="http://www.w3.org/2000/svg">
                     <path

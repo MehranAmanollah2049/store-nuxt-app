@@ -65,9 +65,9 @@ onMounted(async () => {
 
 <template>
     <!-- header -->
-    <div class="w-full center max-[550px]:p-5 relative">
+    <div class="w-full center max-[550px]:p-7 relative">
         <div
-            class="w-full center h-[360px] max-[1090px]:h-[300px] max-[950px]:h-[270px] max-[800px]:h-[210px] max-[600px]:h-[180px] max-[550px]:h-[210px] max-[400px]:h-[170px] relative slider-overflow-visible">
+            class="w-full center h-[360px] max-[1090px]:h-[300px] max-[950px]:h-[270px] max-[800px]:h-[210px] max-[600px]:h-[180px] max-[550px]:h-[200px] max-[400px]:h-[170px] relative slider-overflow-visible">
             <ClientOnly>
                 <Swiper :modules="[Pagination, Autoplay]" slides-per-view="1" :autoplay="{
                     delay: 5000,
@@ -88,21 +88,21 @@ onMounted(async () => {
                         <picture class="w-full h-full">
                             <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-5-sm.jpg" />
                             <img src="~/assets/image/header-slider/slide-5-lg.jpg"
-                                class="w-full h-full object-cover max-[550px]:rounded-lg" alt="">
+                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
                         </picture>
                     </SwiperSlide>
                     <SwiperSlide>
                         <picture class="w-full h-full">
                             <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-4-sm.jpg" />
                             <img src="~/assets/image/header-slider/slide-4-lg.jpg"
-                                class="w-full h-full object-cover max-[550px]:rounded-lg" alt="">
+                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
                         </picture>
                     </SwiperSlide>
                     <SwiperSlide>
                         <picture class="w-full h-full">
                             <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-3-sm.jpg" />
                             <img src="~/assets/image/header-slider/slide-3-lg.jpg"
-                                class="w-full h-full object-cover max-[550px]:rounded-lg" alt="">
+                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
                         </picture>
                     </SwiperSlide>
                 </Swiper>
