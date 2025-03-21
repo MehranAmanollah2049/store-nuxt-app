@@ -14,8 +14,8 @@ return [
             ],
             'url' => env('MELIPAYAMAK_URL', 'https://console.melipayamak.com/api/send/shared/' . env('MELIPAYAMAK_TOKEN')),
             'patterns' => [
-                'active-code' => 299055,
-                'payment-code' => 301553
+                'active-code' => 311770,
+                'payment-code' => 311771
             ]
         ]
     ]

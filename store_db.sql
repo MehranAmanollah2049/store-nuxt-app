@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2025 at 02:56 PM
+-- Generation Time: Mar 21, 2025 at 04:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,16 +38,6 @@ CREATE TABLE `answers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `answers`
---
-
-INSERT INTO `answers` (`id`, `user_id`, `answerable_id`, `answerable_type`, `comment_id`, `text`, `active_at`, `created_at`, `updated_at`) VALUES
-(6, 2, 6, 'App\\Models\\Comment', 6, 'خوشحالم که خوشتون اومده', '2025-03-13 06:52:05', '2025-03-14 06:48:05', '2025-03-14 06:48:05'),
-(7, 2, 15, 'App\\Models\\Comment', 15, 'مرسیییی', '2025-03-14 07:17:44', '2025-03-14 07:13:44', '2025-03-14 07:13:44'),
-(8, 2, 8, 'App\\Models\\Comment', 8, 'ثیثی', '2025-03-14 07:20:10', '2025-03-14 07:16:11', '2025-03-14 07:16:11'),
-(9, 2, 7, 'App\\Models\\Answer', 15, 'قربانتتتت', '2025-03-14 07:20:02', '2025-03-14 07:18:02', '2025-03-14 07:18:02');
 
 -- --------------------------------------------------------
 
@@ -90,8 +80,7 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel_cache_authentication-code-09144831183', 'i:99035;', 1742303179),
-('laravel_cache_authentication-register-09144831183', 'b:1;', 2057663036);
+('laravel_cache_authentication-code-09144831183', 'i:24203;', 1742567917);
 
 -- --------------------------------------------------------
 
@@ -119,6 +108,13 @@ CREATE TABLE `carts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `user_id`, `productType_id`, `count`, `created_at`, `updated_at`) VALUES
+(102, 7, 20, 1, '2025-03-19 02:43:41', '2025-03-19 02:43:41');
 
 -- --------------------------------------------------------
 
@@ -165,10 +161,9 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `commentable_id`, `commentable_type`, `text`, `score`, `active_at`, `created_at`, `updated_at`) VALUES
-(6, 2, 10, 'App\\Models\\Product', 'بسیار محصول خفنی بود<br />\nاپل بهترینهههه', 'پیشنهاد می کنم', '2025-03-13 06:50:43', '2025-03-14 06:46:43', '2025-03-14 06:46:43'),
-(7, 2, 10, 'App\\Models\\Product', 'یکم ایراد داره<br />\nولی در کل خوبه', 'مطمئن نیستم', '2025-03-13 06:51:05', '2025-03-14 06:47:05', '2025-03-14 06:47:05'),
-(8, 2, 10, 'App\\Models\\Product', 'افتضاحححححححح', 'پیشنهاد نمی کنم', '2025-03-13 06:51:13', '2025-03-14 06:47:13', '2025-03-14 06:47:13'),
-(15, 2, 9, 'App\\Models\\Product', 'من که عاشق رنگش شدممم', 'پیشنهاد می کنم', '2025-03-14 07:13:22', '2025-03-14 07:13:22', '2025-03-14 07:13:22');
+(16, 7, 9, 'App\\Models\\Product', 'eded', 'پیشنهاد می کنم', '2025-03-18 02:46:38', '2025-03-19 02:44:38', '2025-03-19 02:44:38'),
+(17, 7, 9, 'App\\Models\\Product', 'rfrf', 'مطمئن نیستم', '2025-03-18 02:46:41', '2025-03-19 02:44:41', '2025-03-19 02:44:41'),
+(18, 7, 9, 'App\\Models\\Product', 'thyh', 'پیشنهاد نمی کنم', '2025-03-18 02:46:44', '2025-03-19 02:44:44', '2025-03-19 02:44:44');
 
 -- --------------------------------------------------------
 
@@ -235,14 +230,6 @@ CREATE TABLE `likes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `likes`
---
-
-INSERT INTO `likes` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
-(240, 2, 16, '2025-03-18 05:53:49', '2025-03-18 05:53:49'),
-(242, 2, 10, '2025-03-18 05:53:50', '2025-03-18 05:53:50');
-
 -- --------------------------------------------------------
 
 --
@@ -298,15 +285,6 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `full_name`, `phone`, `code`, `transaction_id`, `driver`, `status`, `created_at`, `updated_at`) VALUES
-(16, 2, 'مهران امان الله', '09144831183', '412624', '4414ee33-dae0-4aa9-abcc-32efa8819e82', 'شپا', 'پرداخت نشده', '2025-03-17 07:35:39', '2025-03-17 07:35:39'),
-(17, 2, 'مهران امان الله', '09144831183', '215454545787', 'e6547a68-1ee6-487a-9b54-e45eb1f2dd15', 'شپا', 'پرداخت شده', '2025-03-17 07:37:46', '2025-03-17 07:37:49'),
-(18, 2, 'مهران امان الله', '09144831184', '215454545787', '3b0193f6-782d-4e09-81e5-22ea5fed91b2', 'شپا', 'پرداخت شده', '2025-03-18 10:15:44', '2025-03-18 10:15:48');
-
 -- --------------------------------------------------------
 
 --
@@ -324,17 +302,6 @@ CREATE TABLE `order_products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order_products`
---
-
-INSERT INTO `order_products` (`id`, `order_id`, `productType_id`, `discount`, `price`, `payment`, `count`, `created_at`, `updated_at`) VALUES
-(24, 16, 5, 15, 56000000, 47600000, 1, '2025-03-17 07:35:39', '2025-03-18 05:52:33'),
-(25, 17, 5, 15, 56000000, 47600000, 2, '2025-03-17 07:37:46', '2025-03-17 07:37:46'),
-(26, 18, 1, 25, 70000000, 52500000, 1, '2025-03-18 10:15:44', '2025-03-18 10:15:44'),
-(27, 18, 28, 20, 60000000, 54500000, 1, '2025-03-18 10:15:44', '2025-03-18 10:15:44'),
-(28, 18, 8, NULL, NULL, 69000000, 1, '2025-03-18 10:15:44', '2025-03-18 10:15:44');
 
 -- --------------------------------------------------------
 
@@ -379,7 +346,9 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (28, 'App\\Models\\User', 2, '09144831183', '3958a73543dd7c508c858c32fa46df987d0e2bcea7ce1d84eb3fa37bdf58e6f3', '[\"*\"]', '2025-03-17 07:16:44', '2025-05-17 05:29:39', '2025-03-17 05:29:39', '2025-03-17 07:16:44'),
 (30, 'App\\Models\\User', 2, '09144831183', '7d1e3f0250ef9cea4e6cdfe0daf5e15d933c17a3597c780925eb694e27d2b98f', '[\"*\"]', '2025-03-18 09:06:20', '2025-05-18 08:35:38', '2025-03-18 08:35:38', '2025-03-18 09:06:20'),
 (31, 'App\\Models\\User', 2, '09144831183', '3427be743417f630fb84874103d642ddc9facab425d7d9f17efad04278517152', '[\"*\"]', '2025-03-18 08:55:11', '2025-05-18 08:53:59', '2025-03-18 08:53:59', '2025-03-18 08:55:11'),
-(32, 'App\\Models\\User', 2, '09144831183', '310a14d3afc89998e410ba8c3b229561ea482449cf39bc2fa1c74533ab146948', '[\"*\"]', '2025-03-18 10:25:30', '2025-05-18 09:34:30', '2025-03-18 09:34:30', '2025-03-18 10:25:30');
+(32, 'App\\Models\\User', 2, '09144831183', '310a14d3afc89998e410ba8c3b229561ea482449cf39bc2fa1c74533ab146948', '[\"*\"]', '2025-03-18 13:54:46', '2025-05-18 09:34:30', '2025-03-18 09:34:30', '2025-03-18 13:54:46'),
+(33, 'App\\Models\\User', 7, '09144831183', '49a7b102b1831c336a3ff6bdda65b91b6bef3108c0e764e1acc104bc2fab974f', '[\"*\"]', '2025-03-19 08:55:14', '2025-05-18 17:45:02', '2025-03-18 17:45:02', '2025-03-19 08:55:14'),
+(34, 'App\\Models\\User', 7, '09144831183', '4683e4a736835ef16a5bbbe9165ca58c7b8a5eeb2ce383f9fd8a6faa907acc83', '[\"*\"]', '2025-03-21 11:41:17', '2025-05-21 11:06:45', '2025-03-21 11:06:45', '2025-03-21 11:41:17');
 
 -- --------------------------------------------------------
 
@@ -416,7 +385,11 @@ INSERT INTO `products` (`id`, `category_id`, `brand_id`, `title`, `created_at`, 
 (13, 2, 5, 'لپ تاپ 16.1 اینچی اچ‌ پی مدل Victus 16-R0073CL-i7 13700HX 32GB 1SSD RTX4060', '2025-03-08 09:52:29', NULL),
 (14, 5, 1, 'ساعت هوشمند اپل واچ مدل 38mm Stainless Steel Case with Black Modern Buckle', '2025-03-07 10:04:14', NULL),
 (15, 5, 1, 'ساعت هوشمند اپل واچ سری 4 سلولار مدل 40mm Stainless Steel Case with Stone Sport Silicon Band', '2025-03-07 10:07:30', NULL),
-(16, 1, 1, 'گوشی موبایل اپل مدل iPhone XS Max دو سیم‌ کارت ظرفیت 256 گیگابایت', '2025-03-08 10:25:53', NULL);
+(16, 1, 1, 'گوشی موبایل اپل مدل iPhone XS Max دو سیم‌ کارت ظرفیت 256 گیگابایت', '2025-03-08 10:25:53', NULL),
+(17, 2, 1, 'لپ تاپ 13.6 اینچی اپل مدل MacBook Air MLXW3 2022 LLA-M2-8GB Ram-256GB SSD', '2025-03-21 14:30:33', NULL),
+(18, 2, 5, 'لپ تاپ 15.6 اینچی اچ‌ پی مدل Victus 15 Gaming FB2082wm-R5 8645HS-8GB', '2025-03-21 14:40:27', '2025-03-21 14:40:27'),
+(19, 1, 2, 'گوشی موبایل سامسونگ مدل Galaxy S25 Ultra دو سیم کارت', NULL, NULL),
+(20, 1, 2, 'گوشی موبایل سامسونگ مدل S24 FE دو سیم کارت', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -484,7 +457,21 @@ INSERT INTO `product_properties` (`id`, `product_id`, `title`, `created_at`, `up
 (46, 15, 'ورزشی، رسمی، روزمره', NULL, NULL),
 (47, 15, 'جنس بند سیلیکون', NULL, NULL),
 (48, 16, '256 گیگ حافظه', NULL, NULL),
-(49, 16, '4 گیگ رم', NULL, NULL);
+(49, 16, '4 گیگ رم', NULL, NULL),
+(50, 17, 'پردازنده M2', NULL, NULL),
+(51, 17, '8 گیگ رم', NULL, NULL),
+(52, 17, '256 گیگ فضای ذخیره سازی', NULL, NULL),
+(53, 18, 'پردازنده Core i7 نسل 13', '2025-03-21 14:40:52', NULL),
+(54, 18, '24 گیگ رم', NULL, NULL),
+(55, 18, 'دو ترابایت حافظه ذخیره سازی', NULL, NULL),
+(56, 19, 'Android 15', NULL, NULL),
+(57, 19, '200 مگاپیکسل', NULL, NULL),
+(58, 19, '512 گیگ حافظه داخلی', NULL, NULL),
+(59, 19, '12 گیگ رم', NULL, NULL),
+(60, 20, 'Android 14', NULL, NULL),
+(61, 20, '50 مگاپیکسل', NULL, NULL),
+(62, 20, '8 گیگ رم', NULL, NULL),
+(63, 20, '256 گیگ حافظه', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -511,10 +498,10 @@ CREATE TABLE `product_types` (
 --
 
 INSERT INTO `product_types` (`id`, `product_id`, `image`, `color_code`, `color_title`, `discount`, `price`, `payment`, `count`, `created_at`, `updated_at`) VALUES
-(1, 1, '/images/673beeacd35379a3944551e2ca51389730d7703d_1736598864.webp', '#333', 'تیتانیوم مشکی', 25, 70000000, 52500000, 19, NULL, '2025-03-18 10:15:48'),
-(2, 1, '/images/ecddd0557a29c361ec03563931394125578f4128_1736598673.webp', '#cbbbad', 'تیتانیوم صحرایی', 20, 71500000, 57200000, 24, NULL, '2025-03-17 07:34:45'),
-(5, 2, '/images/dcd6e4e843bea3f070614a95d27b1181fdf23008_1727276123.webp', '#c99212', 'طلایی', 15, 56000000, 47600000, 10, NULL, '2025-03-17 07:37:49'),
-(6, 3, '/images/5af568b4909435c6a215ad5e728e902db234b673_1736597759.webp', '#2196f3', 'آبی', 13, 79200000, 68784000, 14, NULL, NULL),
+(1, 1, '/images/673beeacd35379a3944551e2ca51389730d7703d_1736598864.webp', '#333', 'تیتانیوم مشکی', 25, 70000000, 52500000, 27, NULL, '2025-03-18 10:15:48'),
+(2, 1, '/images/ecddd0557a29c361ec03563931394125578f4128_1736598673.webp', '#cbbbad', 'تیتانیوم صحرایی', 20, 71500000, 57200000, 45, NULL, '2025-03-17 07:34:45'),
+(5, 2, '/images/dcd6e4e843bea3f070614a95d27b1181fdf23008_1727276123.webp', '#c99212', 'طلایی', 15, 56000000, 47600000, 42, NULL, '2025-03-17 07:37:49'),
+(6, 3, '/images/5af568b4909435c6a215ad5e728e902db234b673_1736597759.webp', '#2196f3', 'آبی', 13, 79200000, 68784000, 22, NULL, NULL),
 (7, 3, '/images/atrinkala-apple-iphone-16-128-black_2.jpg', '#000', 'مشکی', NULL, NULL, 69200000, 25, NULL, NULL),
 (8, 3, '/images/atrinkala-apple-iphone-16-128-green_2.jpg', '#a1c9c9', 'سبز', NULL, NULL, 69000000, 29, NULL, '2025-03-18 10:15:48'),
 (9, 4, '/images/atrinkala-iphone-15-pro-max-256gb-white.jpg', '#fff', 'سفید', 12, 48500000, 42680000, 20, NULL, NULL),
@@ -534,29 +521,19 @@ INSERT INTO `product_types` (`id`, `product_id`, `image`, `color_code`, `color_t
 (23, 14, '/images/876148.webp', '#000', 'مشکی', 10, 6900000, 5550000, 30, NULL, NULL),
 (24, 14, '/images/1ed7524074e83cdb665d4e9619e5a8ff32b133b0_1701161232.webp', '#e6dab3', 'طلایی', 12, 6900000, 5880000, 32, NULL, NULL),
 (25, 15, '/images/1ed7524074e83cdb665d4e9619e5a8ff32b133b0_1701161232.webp', '#fff', 'سفید', NULL, NULL, 9600000, 25, NULL, NULL),
-(28, 16, '/images/80aedbf89779340a46c5974916222cf9dd7309c9_1656406751.webp', '#fee0ca', 'طلایی', 20, 60000000, 54500000, 25, NULL, '2025-03-18 10:15:48');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product_type_galleries`
---
-
-CREATE TABLE `product_type_galleries` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `productType_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `product_type_galleries`
---
-
-INSERT INTO `product_type_galleries` (`id`, `productType_id`, `image`, `created_at`, `updated_at`) VALUES
-(1, 1, '/images/gallery/a5a8557e2ad13191c8b9c01373b2ad7f90290f57_1736598864.webp', NULL, NULL),
-(2, 2, '/images/gallery/2-smart_crop-c0-5__0-5-1500x1500-70-600x600.jpg', NULL, NULL);
+(28, 16, '/images/80aedbf89779340a46c5974916222cf9dd7309c9_1656406751.webp', '#fee0ca', 'طلایی', 20, 60000000, 54500000, 25, NULL, '2025-03-18 10:15:48'),
+(29, 17, '/images/1103d366e8d73bc155a7e1be7f926f0d2bfca503_1671475208.webp', '#334155', 'تیتانیوم', 20, 76200000, 75600000, 35, '2025-03-21 14:31:40', '2025-03-21 14:31:40'),
+(30, 17, '/images/3898504ea35d50f59ac5c6755ac732dc310ca399_1671472029.webp', 'rgb(59, 130, 246)', 'آبی', 25, 76800000, 75680000, 25, '2025-03-21 14:31:40', '2025-03-21 14:31:40'),
+(31, 18, '/images/2716b42068af45cb01c4cec0b4544236669e8dc8_1733325587.webp', '#002171', 'سرمه ای', 15, 89200000, 88900000, 42, '2025-03-21 14:41:55', '2025-03-21 14:41:55'),
+(32, 18, '/images/d2f04c540a24374af145991bb2e7f79b8afbc57b_1727772138.webp', '#9e9e9e', 'خاکستری', 10, 89500000, 89250000, 49, NULL, NULL),
+(33, 19, '/images/9083bfc1247b12a1a082a68ca8da8ea4b98e3204_1737642906.webp', '#fff', 'سفید', 20, 97000000, 96480000, 55, NULL, NULL),
+(34, 19, '/images/0d80cf1763f87dfba48641cc09674f49f999386f_1737642906.webp', 'rgb(173, 180, 166)', 'سبز تیره', 25, 98600000, 98150000, 62, NULL, NULL),
+(35, 19, '/images/fc14a8f19a56d5fa8754d26ef499bba9f5a3d2f4_1737642907.webp', '#000', 'مشکی', 0, 0, 96000000, 49, NULL, NULL),
+(36, 20, '/images/1727684512-S24-FE-256-8-5g.png', '#000', 'مشکی', 20, 45000000, 44670000, 36, NULL, NULL),
+(37, 20, '/images/aligned_5-600x600.jpg', 'rgb(211, 211, 209)', 'نقره ای', 15, 48200000, 47820000, 46, NULL, NULL),
+(38, 20, '/images/49e641068be2c28ef70b946ce1230724351a8603_1727685940.webp', '#fbe9a6', 'زرد', 50, 48000000, 24000000, 36, NULL, NULL),
+(39, 20, '/images/6a8b8bdd45a198c3d120189bb47011bd37ed3195_1727685939.webp', '#d6e3f3', 'آبی', NULL, NULL, 47900000, 46, NULL, NULL),
+(40, 20, '/images/42e6fe2ec2fd02c1e52abda18534bf403fd8f8e8_1727685940.webp', '#d9eae3', 'سبز', 10, 48500000, 48250000, 30, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -594,7 +571,6 @@ CREATE TABLE `users` (
   `name` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -604,8 +580,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `lastname`, `phone`, `password`, `is_admin`, `created_at`, `updated_at`) VALUES
-(2, 'مهران', 'امان الله', '09144831183', '$2y$12$WhCZnPH8oyztUT0ZsLRNqOXNJqRzCmLMfnfIfiE7IIQ3jak68ZnJK', 0, '2025-03-14 06:32:57', '2025-03-18 10:22:55');
+INSERT INTO `users` (`id`, `name`, `lastname`, `phone`, `is_admin`, `created_at`, `updated_at`) VALUES
+(7, 'مهران', 'امان الله', '09144831183', 0, '2025-03-18 17:45:02', '2025-03-18 17:45:02');
 
 --
 -- Indexes for dumped tables
@@ -744,13 +720,6 @@ ALTER TABLE `product_types`
   ADD KEY `product_types_product_id_foreign` (`product_id`);
 
 --
--- Indexes for table `product_type_galleries`
---
-ALTER TABLE `product_type_galleries`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_type_galleries_producttype_id_foreign` (`productType_id`);
-
---
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -785,7 +754,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -797,7 +766,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -815,7 +784,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -839,37 +808,31 @@ ALTER TABLE `order_products`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `product_properties`
 --
 ALTER TABLE `product_properties`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `product_types`
 --
 ALTER TABLE `product_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT for table `product_type_galleries`
---
-ALTER TABLE `product_type_galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -933,12 +896,6 @@ ALTER TABLE `product_properties`
 --
 ALTER TABLE `product_types`
   ADD CONSTRAINT `product_types_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `product_type_galleries`
---
-ALTER TABLE `product_type_galleries`
-  ADD CONSTRAINT `product_type_galleries_producttype_id_foreign` FOREIGN KEY (`productType_id`) REFERENCES `product_types` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
