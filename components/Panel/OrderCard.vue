@@ -39,7 +39,7 @@ defineProps({
                 <div
                     class="bg-[#4a6dff] text-white rounded-full min-w-[20px] h-[20px] center absolute top-0 -left-2 font-medium text-[14px] max-[720px]:-left-0">
                     {{ product.count }}</div>
-                <img :src="useRuntimeConfig().public.BASEURL + product.image" alt=""
+                <img lazy="true" :src="useRuntimeConfig().public.BASEURL + product.image" alt=""
                     class="size-[120px] object-contain rounded-lg">
             </nuxt-link>
         </div>

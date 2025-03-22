@@ -180,7 +180,7 @@ const prev_handler = () => {
                             clickable: true
                         }" class="w-full h-full">
                             <SwiperSlide v-for="item in images" :key="item.id">
-                                <img :src="useRuntimeConfig().public.BASEURL + item.image"
+                                <img lazy="true" :src="useRuntimeConfig().public.BASEURL + item.image"
                                     class="w-full h-full object-contain max-[550px]:rounded-lg" alt="">
                             </SwiperSlide>
                         </Swiper>

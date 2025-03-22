@@ -80,5 +80,5 @@ const submitHandler = () => {
             </div>
         </form>
     </div>
-    <VerifyPhoneBox v-model="isActive" v-model:phone="phone" />
+    <LazyVerifyPhoneBox v-model="isActive" v-model:phone="phone" />
 </template>

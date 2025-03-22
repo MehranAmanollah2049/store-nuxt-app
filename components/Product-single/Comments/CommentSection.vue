@@ -134,12 +134,12 @@ onMounted(() => send_request(1))
                 </div>
             </template>
             <template v-else>
-                <Comment v-for="comment in comments" :key="comment.id" :data="comment"
+                <LazyComment v-for="comment in comments" :key="comment.id" :data="comment"
                     @answerEvent="add_answer_handler(comment.id, comment.id, 'Comment', comment.user)">
-                    <Comment v-for="(answer, index) in comment.answers" :key="answer.id" :data="answer"
+                    <LazyComment v-for="(answer, index) in comment.answers" :key="answer.id" :data="answer"
                         :answer_mode="true" :is_last="index == comment.answers.length - 1"
                         @answerEvent="add_answer_handler(comment.id, answer.id, 'Answer', answer.user)" />
-                </Comment>
+                </LazyComment>
             </template>
 
 
@@ -156,5 +156,5 @@ onMounted(() => send_request(1))
             </div>
         </div>
     </div>
-    <CommnetForm v-model="form_config" v-model:text="text" v-model:score="score" />
+    <LazyCommnetForm v-model="form_config" v-model:text="text" v-model:score="score" />
 </template>

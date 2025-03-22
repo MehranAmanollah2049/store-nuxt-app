@@ -11,7 +11,7 @@ defineProps({
         class="w-full border border-gray-200/70 p-3 py-4 rounded-lg flex items-center justify-between max-[750px]:flex-col max-[750px]:gap-2">
         <nuxt-link :to="`/products/${product.product_id}?type=${product.type_id}`"
             class="w-28/40 flex items-center justify-start gap-3 max-[750px]:w-full max-[480px]:flex-col">
-            <img :src="useRuntimeConfig().public.BASEURL + product.image"
+            <img lazy="true" :src="useRuntimeConfig().public.BASEURL + product.image"
                 class="w-[150px] object-contain max-[480px]:w-[200px] max-[340px]:w-[90%]" alt="">
             <div class="w-[calc(100%-160px)] flex items-start justify-center flex-col gap-3 max-[480px]:w-full">
                 <p class="w-full text-[18px] text-title font-bold">{{ product.title }}</p>

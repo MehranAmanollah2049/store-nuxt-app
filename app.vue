@@ -2,6 +2,7 @@
 import { Toaster } from "vue-toast-next";
 import { useUser } from '~/stores/auth/useUser'
 
+
 const userStore = useUser();
 userStore.load_user()
 

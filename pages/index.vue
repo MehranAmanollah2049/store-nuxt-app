@@ -87,21 +87,21 @@ onMounted(async () => {
                     <SwiperSlide>
                         <picture class="w-full h-full">
                             <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-5-sm.jpg" />
-                            <img src="~/assets/image/header-slider/slide-5-lg.jpg"
+                            <img lazy="true" src="~/assets/image/header-slider/slide-5-lg.jpg"
                                 class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
                         </picture>
                     </SwiperSlide>
                     <SwiperSlide>
                         <picture class="w-full h-full">
                             <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-4-sm.jpg" />
-                            <img src="~/assets/image/header-slider/slide-4-lg.jpg"
+                            <img lazy="true" src="~/assets/image/header-slider/slide-4-lg.jpg"
                                 class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
                         </picture>
                     </SwiperSlide>
                     <SwiperSlide>
                         <picture class="w-full h-full">
                             <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-3-sm.jpg" />
-                            <img src="~/assets/image/header-slider/slide-3-lg.jpg"
+                            <img lazy="true" src="~/assets/image/header-slider/slide-3-lg.jpg"
                                 class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
                         </picture>
                     </SwiperSlide>
@@ -168,7 +168,7 @@ onMounted(async () => {
         <div class="w-custom flex items-strech justify-between gap-7 max-[1090px]:flex-col max-[1090px]:!w-full">
             <div
                 class="w-3/15 flex items-start justify-start flex-col gap-5 py-5 max-[560px]:py-0 pt-10 max-[1090px]:w-full max-[1090px]:px-3 max-[1090px]:flex-row max-[1090px]:justify-between max-[1090px]:items-center max-[1090px]:pt-0">
-                <img src="~/assets/image/diccount-p.svg"
+                <img lazy="true" src="~/assets/image/diccount-p.svg"
                     class="w-[88%] max-[1090px]:w-[200px] object-contain max-[560px]:w-[160px] max-[355px]:w-[140px]"
                     alt="">
                 <nuxt-link to="/products"
@@ -192,7 +192,7 @@ onMounted(async () => {
                         <ProductCardLoading v-for="index in 4" :key="index" class="max-[950px]:w-[250px]" />
                     </template>
                     <template v-else>
-                        <ProductCard @like_tracker="like_tracker" v-for="product in discount_products.data"
+                        <LazyProductCard @like_tracker="like_tracker" v-for="product in discount_products.data"
                             :key="product.id" :product="product"
                             class="first:rounded-r-xl border-l-transparent last:rounded-l-xl last:border-l-gray-100 max-[950px]:w-[250px]" />
                     </template>
@@ -219,7 +219,7 @@ onMounted(async () => {
                         <ProductCardLoading v-for="index in 5" :key="index" class="max-[1300px]:w-[250px]" />
                     </template>
                     <template v-else>
-                        <ProductCard @like_tracker="like_tracker" v-for="product in popular_products.data"
+                        <LazyProductCard @like_tracker="like_tracker" v-for="product in popular_products.data"
                             :key="product.id" :product="product"
                             class="first:rounded-r-xl border-l-transparent last:rounded-l-xl last:border-l-gray-100 max-[1300px]:w-[250px]" />
                     </template>

@@ -1,5 +1,4 @@
 <script setup>
-
 let model = defineModel();
 
 const inputs = ref([]);
@@ -12,21 +11,17 @@ let inputsElem5 = ref(null);
 let inputsElem6 = ref(null);
 
 let inputHandler = (e, index) => {
+    let value = e.target.value.replace(/[^0-9]/g, '').slice(0, 1); // فقط عدد و یک رقم
+    model.value[index] = value;
 
-    let value = e.target.value;
-
-    // only number and one digit allowed
-    model.value[index] = value.replace(/[^0-9]/g, '').slice(0, 1);
-
-    if (value.length === 1 && index < model.value.length - 1 && model.value[index] != '') {
-        inputs.value[index + 1].focus();
+    if (value.length === 1 && index < model.value.length - 1) {
+        inputs.value[index + 1]?.focus();
     }
-
 }
 
 let onBackspace = (e, index) => {
-    if (index > 0 && model.value[index] === '') {
-        inputs.value[index - 1].focus();
+    if (e.key === 'Backspace' && index > 0 && model.value[index] === '') {
+        inputs.value[index - 1]?.focus();
     }
 }
 
@@ -40,23 +35,22 @@ onMounted(() => {
         inputsElem6.value
     ];
 });
-
 </script>
 
 <template>
-    <input v-model="model[0]" @input="inputHandler($event, 0)" @keydown.backspace="onBackspace($event, 0)" type="text"
+    <input v-model="model[0]" @input="inputHandler($event, 0)" @keydown="onBackspace($event, 0)" type="text"
         ref="inputsElem1"
         class="w-1/5 h-[50px] outline-none text-title text-[17px] border rounded-sm border-gray-200 px-3 transition-custom focus:border-theme text-center" />
-    <input v-model="model[1]" @input="inputHandler($event, 1)" @keydown.backspace="onBackspace($event, 1)" type="text"
+    <input v-model="model[1]" @input="inputHandler($event, 1)" @keydown="onBackspace($event, 1)" type="text"
         ref="inputsElem2"
         class="w-1/5 h-[50px] outline-none text-title text-[17px] border rounded-sm border-gray-200 px-3 transition-custom focus:border-theme text-center" />
-    <input v-model="model[2]" @input="inputHandler($event, 2)" @keydown.backspace="onBackspace($event, 2)" type="text"
+    <input v-model="model[2]" @input="inputHandler($event, 2)" @keydown="onBackspace($event, 2)" type="text"
         ref="inputsElem3"
         class="w-1/5 h-[50px] outline-none text-title text-[17px] border rounded-sm border-gray-200 px-3 transition-custom focus:border-theme text-center" />
-    <input v-model="model[3]" @input="inputHandler($event, 3)" @keydown.backspace="onBackspace($event, 3)" type="text"
+    <input v-model="model[3]" @input="inputHandler($event, 3)" @keydown="onBackspace($event, 3)" type="text"
         ref="inputsElem4"
         class="w-1/5 h-[50px] outline-none text-title text-[17px] border rounded-sm border-gray-200 px-3 transition-custom focus:border-theme text-center" />
-    <input v-model="model[4]" @input="inputHandler($event, 4)" @keydown.backspace="onBackspace($event, 4)" type="text"
+    <input v-model="model[4]" @input="inputHandler($event, 4)" @keydown="onBackspace($event, 4)" type="text"
         ref="inputsElem5"
         class="w-1/5 h-[50px] outline-none text-title text-[17px] border rounded-sm border-gray-200 px-3 transition-custom focus:border-theme text-center" />
 </template>

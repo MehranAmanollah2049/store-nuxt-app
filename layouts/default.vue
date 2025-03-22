@@ -27,6 +27,6 @@ provide("menu_data_loading" , menu_data_loading)
 <template>
     <Menu />
     <slot />
-    <Footer />
+    <LazyFooter />
     <MenuBar />
 </template>
