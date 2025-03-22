@@ -46,7 +46,7 @@ onMounted(async () => {
             </template>
             <template v-else>
                 <div class="w-full center flex-col gap-3 font-bold text-gray-600 py-3">
-                    <NuxtImg lazy="true" src="/favorites-list-empty.svg" alt="" />
+                    <img lazy="true" src="/favorites-list-empty.svg" alt="" />
                     <span>موردی یافت نشد</span>
                 </div>
             </template>

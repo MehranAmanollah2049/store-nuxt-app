@@ -215,7 +215,7 @@ const orderBy_sheet = ref(null)
                         <ProductCardLoading />
                     </template>
                     <template v-else-if="products">
-                        <LazyProductCard v-for="product in products.data" :key="product.id" :product="product" />
+                        <ProductCard v-for="product in products.data" :key="product.id" :product="product" />
                     </template>
                 </div>
                 <div class="w-full flex items-center justify-between pt-8"
@@ -233,7 +233,7 @@ const orderBy_sheet = ref(null)
                 </div>
                 <div class="w-full py-15 center flex-col gap-3 py-3 font-bold text-gray-600"
                     v-if="products.data.length == 0 && !products_loading">
-                    <NuxtImg lazy="true" src="/empty-cart.svg" alt="" />
+                    <img lazy="true" src="/empty-cart.svg" alt="" />
                     موردی یافت نشده
                 </div>
             </div>

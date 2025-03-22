@@ -28,5 +28,5 @@ let handleInput = (e) => {
 <template>
     <input :type="type" @input="handleInput" v-model="model"
         class="w-full h-[50px] outline-none text-title text-[15px] border rounded-sm border-gray-200 px-3 transition-custom focus:border-theme"
-        :placeholder="placeholder">
+        :placeholder="placeholder" :inputmode="onlyNumber ? 'numeric' : 'text'">
 </template>

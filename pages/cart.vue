@@ -153,7 +153,7 @@ onMounted(async () => await fetch_data())
                 </div>
             </div>
             <div class="w-full py-15 center flex-col gap-2 font-bold text-gray-600" v-else>
-                <NuxtImg lazy="true" src="/empty-cart.svg" alt="" />
+                <img lazy="true" src="/empty-cart.svg" alt="" />
                 موردی یافت نشده
             </div>
         </div>
