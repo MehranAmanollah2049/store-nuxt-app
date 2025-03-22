@@ -11,9 +11,9 @@ defineProps({
 
 <template>
     <nuxt-link to="/" class="h-full">
-        <img lazy="true" class="w-[80px] h-full object-contain" :class="{
+        <NuxtImg lazy="true" class="w-[80px] h-full object-contain" :class="{
             'w-[130px]': is_large,
             'w-[80px]': !is_large
-        }" src="~/assets/image/logo.png" alt="">
+        }" src="/logo.png" alt="" />
     </nuxt-link>
 </template>

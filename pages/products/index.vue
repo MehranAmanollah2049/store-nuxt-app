@@ -233,7 +233,7 @@ const orderBy_sheet = ref(null)
                 </div>
                 <div class="w-full py-15 center flex-col gap-3 py-3 font-bold text-gray-600"
                     v-if="products.data.length == 0 && !products_loading">
-                    <img lazy="true" src="~/assets/image/empty-cart.svg" alt="">
+                    <NuxtImg lazy="true" src="/empty-cart.svg" alt="" />
                     موردی یافت نشده
                 </div>
             </div>

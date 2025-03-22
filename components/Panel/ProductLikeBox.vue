@@ -15,7 +15,7 @@ load_likes(props.product.likes)
 <template>
     <div class="w-full border border-gray-200/70 py-3 px-5 rounded-lg flex items-center justify-between max-[750px]:flex-col max-[750px]:gap-2">
         <nuxt-link :to="`/products/${product.id}?type=${product.type_id}`" class="w-26/40 flex items-center justify-between gap-3 max-[750px]:w-full max-[480px]:flex-col">
-            <img lazy="true" :src="useRuntimeConfig().public.BASEURL + product.image" class="w-[110px] object-contain" alt="">
+            <NuxtImg lazy="true" :src="useRuntimeConfig().public.BASEURL + product.image" class="w-[110px] object-contain" alt="" />
             <div class="w-[calc(100%-130px)] flex items-start justify-center flex-col gap-3 max-[480px]:w-full">
                 <p class="w-full text-[17px] text-title font-bold">{{ product.title }}</p>
                 <div class="w-full flex items-center justify-start gap-2">

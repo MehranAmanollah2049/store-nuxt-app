@@ -180,8 +180,8 @@ const prev_handler = () => {
                             clickable: true
                         }" class="w-full h-full">
                             <SwiperSlide v-for="item in images" :key="item.id">
-                                <img lazy="true" :src="useRuntimeConfig().public.BASEURL + item.image"
-                                    class="w-full h-full object-contain max-[550px]:rounded-lg" alt="">
+                                <NuxtImg lazy="true" :src="useRuntimeConfig().public.BASEURL + item.image"
+                                    class="w-full h-full object-contain max-[550px]:rounded-lg" alt="" />
                             </SwiperSlide>
                         </Swiper>
                         <div class="w-full flex items-center justify-center absolute bottom-4 z-3">

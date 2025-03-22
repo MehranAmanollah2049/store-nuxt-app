@@ -37,8 +37,8 @@ watch(() => props.product.likes , () => load_likes(props.product.likes))
             </div>
             <nuxt-link :to="{ path: `/products/${product.id}`, query: { type: product.type_id } }"
                 class="w-full h-full">
-                <img lazy="true" :src="useRuntimeConfig().public.BASEURL + product.image" class="w-full h-full object-contain"
-                    alt="">
+                <NuxtImg lazy="true" :src="useRuntimeConfig().public.BASEURL + product.image" class="w-full h-full object-contain"
+                    alt="" />
             </nuxt-link>
         </div>
         <nuxt-link :to="{ path: `/products/${product.id}`, query: { type: product.type_id } }"

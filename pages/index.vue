@@ -86,23 +86,23 @@ onMounted(async () => {
                 }" :loop="true" class="w-full h-full">
                     <SwiperSlide>
                         <picture class="w-full h-full">
-                            <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-5-sm.jpg" />
-                            <img lazy="true" src="~/assets/image/header-slider/slide-5-lg.jpg"
-                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
+                            <source media="(max-width: 550px)" srcset="/header-slider/slide-5-sm.jpg" />
+                            <NuxtImg lazy="true" src="/header-slider/slide-5-lg.jpg"
+                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="" />
                         </picture>
                     </SwiperSlide>
                     <SwiperSlide>
                         <picture class="w-full h-full">
-                            <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-4-sm.jpg" />
-                            <img lazy="true" src="~/assets/image/header-slider/slide-4-lg.jpg"
-                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
+                            <source media="(max-width: 550px)" srcset="/header-slider/slide-4-sm.jpg" />
+                            <NuxtImg lazy="true" src="/header-slider/slide-4-lg.jpg"
+                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="" />
                         </picture>
                     </SwiperSlide>
                     <SwiperSlide>
                         <picture class="w-full h-full">
-                            <source media="(max-width: 550px)" srcset="~/assets/image/header-slider/slide-3-sm.jpg" />
-                            <img lazy="true" src="~/assets/image/header-slider/slide-3-lg.jpg"
-                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="">
+                            <source media="(max-width: 550px)" srcset="/header-slider/slide-3-sm.jpg" />
+                            <NuxtImg lazy="true" src="/header-slider/slide-3-lg.jpg"
+                                class="w-full h-full object-cover max-[550px]:rounded-2xl" alt="" />
                         </picture>
                     </SwiperSlide>
                 </Swiper>
@@ -168,9 +168,9 @@ onMounted(async () => {
         <div class="w-custom flex items-strech justify-between gap-7 max-[1090px]:flex-col max-[1090px]:!w-full">
             <div
                 class="w-3/15 flex items-start justify-start flex-col gap-5 py-5 max-[560px]:py-0 pt-10 max-[1090px]:w-full max-[1090px]:px-3 max-[1090px]:flex-row max-[1090px]:justify-between max-[1090px]:items-center max-[1090px]:pt-0">
-                <img lazy="true" src="~/assets/image/diccount-p.svg"
+                <NuxtImg lazy="true" src="/diccount-p.svg"
                     class="w-[88%] max-[1090px]:w-[200px] object-contain max-[560px]:w-[160px] max-[355px]:w-[140px]"
-                    alt="">
+                    alt="" />
                 <nuxt-link to="/products"
                     class="bg-white center rounded-full px-3 py-[5px] pt-[6px] text-title text-[15px]">
                     مشاهده همه
