@@ -19,6 +19,8 @@ class ProductResource extends JsonResource
         $category = $this->category;
         $brand = $this->brand;
 
+        $rate = $this->calculate_rate();
+
         return [
             'id' => $this->id,
             'category' => [
@@ -30,6 +32,10 @@ class ProductResource extends JsonResource
                 'title' => $brand->title,
             ],
             'likes' => $this->likes->pluck('user_id'),
+            'rate' => [
+                'total' => $rate['total'],
+                'rate' => $rate['rate']
+            ],
             'title' => $this->title,
             'total_cmt' => $this->total_comments(),
             'propertys' => $this->product_propertys->pluck('title'),

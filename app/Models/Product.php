@@ -52,4 +52,30 @@ class Product extends Model
 
         return $totalComments + $totalAnswers;
     }
+
+    public function rates()
+    {
+        return $this->hasMany(Rate::class);
+    }
+
+    public function calculate_rate()
+    {
+        $rates = $this->rates; // گرفتن همه امتیازات مرتبط
+        $total = $rates->count(); // شمارش کل امتیازات
+
+        $result = [
+            'total' => $total,
+            'rate' => 0
+        ];
+
+        if ($total === 0) {
+            return $result;
+        }
+
+        $average = round($rates->avg('rate'), 1);
+
+        $result['rate'] = $average;
+
+        return $result;
+    }
 }

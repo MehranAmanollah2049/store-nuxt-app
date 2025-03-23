@@ -57,4 +57,25 @@ class ProductController extends Controller
     {
         return new ProductResource($product);
     }
+
+    public function rate(Request $request,Product $product)
+    {
+        $validated = $request->validate([
+            'rate' => ['required','numeric']
+        ]);
+
+        if($product->rates()->where('user_id' , $request->user()->id)->first())
+        {
+            return response([
+                'error' => 'امتیاز شما از قبل ثبت شده'
+            ],422);
+        }
+
+        $product->rates()->create([
+            'user_id' => $request->user()->id,
+            'rate' => $validated['rate']
+        ]);
+
+        return response($product->calculate_rate());
+    }
 }

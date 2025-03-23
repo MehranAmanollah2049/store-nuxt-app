@@ -45,6 +45,7 @@ Route::controller(IndexController::class)->group(function () {
 Route::controller(ProductController::class)->group(function () {
     Route::get('/products', 'products');
     Route::get('/products/{product}', 'single_products')->middleware(AuthCheckMiddleware::class);
+    Route::post('/rate/{product}' , 'rate')->middleware('auth:sanctum');
 });
 
 Route::middleware('auth:sanctum')->controller(CommentController::class)->group(function () {
