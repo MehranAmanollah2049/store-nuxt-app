@@ -99,7 +99,7 @@ onMounted(() => send_request(1))
 </script>
 
 <template>
-    <div class="w-full center flex-col gap-3 pt-15 pb-10 max-[500px]:pt-8" ref="comment_section_elem">
+    <div class="w-full center flex-col gap-3 pb-10" ref="comment_section_elem">
         <div class="w-full flex items-center pb-3 justify-between flex-wrap gap-3">
             <p
                 class="font-heavy text-[25px] max-[650px]:text-[23px] max-[450px]:text-[21px] text-theme pr-5 center relative after:size-2 after:rounded-full after:bg-theme after:absolute after:content-[''] after:transform-[translateY(-0.5px)] after:right-0">
