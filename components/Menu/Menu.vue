@@ -48,7 +48,7 @@ onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
 })
 
-watch(() => route.fullPath , () => menubar_active.value = true)
+watch(() => route.fullPath, () => menubar_active.value = true)
 
 </script>
 
@@ -57,7 +57,7 @@ watch(() => route.fullPath , () => menubar_active.value = true)
         <div class="w-custom flex items-center justify-center font-medium text-white text-[15px]">پروژه تمرینی فروشگاه
             دیجینو 🎉</div>
     </div>
-    <nav class="w-full center flex-col bg-white border-b border-gray-200 sticky top-0 z-200">
+    <nav class="w-full center bg-white z-200 sticky top-0 border-b border-transparent max-[800px]:border-gray-200">
         <div class="w-custom h-15 pt-1 max-[800px]:pb-1 flex items-center justify-between relative bg-white z-2">
             <div class="w-11/20 max-[1000px]:w-13/20 max-[800px]:w-full h-full flex items-center justify-start">
                 <Logo />
@@ -90,10 +90,12 @@ watch(() => route.fullPath , () => menubar_active.value = true)
                 <Profile v-else />
             </div>
         </div>
-        <div class="w-custom h-12 max-[800px]:hidden flex items-center justify-between transition-custom" :class="{
-            '-mt-0': menubar_active,
-            '-mt-10': !menubar_active
-        }">
+    </nav>
+    <nav  class="w-full center bg-white z-199 sticky top-[60px] bg-white border-b border-gray-200 transition-custom max-[800px]:!hidden" :class="{
+        'translate-y-0': menubar_active,
+        'translate-y-[-40px]': !menubar_active,
+    }">
+        <div class="w-custom h-12 flex items-center justify-between">
             <div class="w-auto h-full flex items-center gap-4 justify-start relative group">
 
                 <DrpItem title="دسته بندی" @mouseover="menu_line_type = 'categorys'">
