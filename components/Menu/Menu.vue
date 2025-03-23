@@ -12,6 +12,7 @@ let menu_line_type = ref('categorys')
 
 // scroll animation
 let menubar_active = ref(true)
+const route = useRoute()
 
 const cart_redirect = () => {
     if (!userStore.isLoggedIn()) {
@@ -21,22 +22,40 @@ const cart_redirect = () => {
     return navigateTo('/cart')
 }
 
-onMounted(() => {
-    document.onscroll = (event) => {
-        if (document.documentElement.scrollTop > 80) {
+const lastScrollY = ref(0)
+
+const handleScroll = () => {
+    const currentScrollY = window.scrollY
+    const documentHeight = document.documentElement.scrollHeight
+    const windowHeight = window.innerHeight
+    const distanceToBottom = documentHeight - (currentScrollY + windowHeight)
+
+    if (currentScrollY > 250 && distanceToBottom > 180) {
+        if (currentScrollY > lastScrollY.value) {
             menubar_active.value = false
-        }
-        else {
+        } else if (currentScrollY < lastScrollY.value) {
             menubar_active.value = true
         }
+        lastScrollY.value = currentScrollY
     }
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
 })
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+})
+
+watch(() => route.fullPath , () => menubar_active.value = true)
 
 </script>
 
 <template>
     <div class="w-full center bg-gradient-to-l from-title to-title p-2">
-        <div class="w-custom flex items-center justify-center font-medium text-white text-[15px]">پروژه تمرینی فروشگاه دیجینو 🎉</div>
+        <div class="w-custom flex items-center justify-center font-medium text-white text-[15px]">پروژه تمرینی فروشگاه
+            دیجینو 🎉</div>
     </div>
     <nav class="w-full center flex-col bg-white border-b border-gray-200 sticky top-0 z-200">
         <div class="w-custom h-15 pt-1 max-[800px]:pb-1 flex items-center justify-between relative bg-white z-2">
@@ -86,7 +105,8 @@ onMounted(() => {
                     </svg>
 
                     <template #drop-down>
-                        <DropDown keyItem="category" :list="menu_data.categorys" :loading="menu_data_loading"></DropDown>
+                        <DropDown keyItem="category" :list="menu_data.categorys" :loading="menu_data_loading">
+                        </DropDown>
                     </template>
 
                 </DrpItem>
