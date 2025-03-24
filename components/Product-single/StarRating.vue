@@ -2,7 +2,7 @@
 import toast from 'vue-toast-next'
 import { useUser } from '~/stores/auth/useUser'
 
-defineProps({
+let props = defineProps({
     loading: {
         type: Boolean,
         default: false
@@ -19,7 +19,10 @@ const userStore = useUser()
 
 const isLoading = ref(false)
 
-const selectRate = (e) => {
+const active_index = ref(-1)
+const is_mouse_leave = ref(true)
+
+const selectRate = (rate) => {
 
     if (!userStore.isLoggedIn()) {
         toast.error("ابتدا وارد حساب خود شوید")
@@ -33,7 +36,7 @@ const selectRate = (e) => {
         $HttpRequest(`/rate/${route.params.id}`, {
             method: 'POST',
             body: {
-                rate: e
+                rate
             }
         })
             .then(res => {
@@ -42,6 +45,7 @@ const selectRate = (e) => {
 
                 if (res) {
                     model.value = res
+                    active_index.value = res.rate
                     toast.success("امتیاز شما با موفقیت ثبت گردید")
                 }
             })
@@ -52,12 +56,24 @@ const selectRate = (e) => {
     }
 }
 
-const login_alert = () => {
-    if (!userStore.isLoggedIn()) {
-        toast.error("ابتدا وارد حساب خود شوید")
-        return;
-    }
+
+
+const mouse_in = (index) => {
+    active_index.value = index
+    is_mouse_leave.value = false
 }
+
+const mouse_leave = () => {
+    active_index.value = model.value.rate
+    is_mouse_leave.value = true
+}
+
+watch(() => props.loading, () => {
+    if (!props.loading) {
+        active_index.value = model.value.rate
+    }
+})
+
 
 </script>
 
@@ -65,10 +81,18 @@ const login_alert = () => {
     <div class="w-full flex items-center justify-between my-7 p-5 bg-gray-100/60 rounded-xl">
         <p class="font-medium text-title text-[16px]">امتیاز خود را ثبت کنید: </p>
         <template v-if="!loading">
-            <div class="center translate-y-[3px]" :style="{ direction: 'ltr' }">
-                <NuxtRating :read-only="false" border-color="#f54900" active-color="#f54900" inactive-color="#fff"
-                    :rating-step="0.5" :rounded-corners="true" :border-width="6" :rating-size="12" :rating-spacing="3"
-                    :rating-value="model.rate" @rating-selected="selectRate" />
+            <div class="center gap-[3px]" :style="{ direction: 'ltr' }" @mouseleave="mouse_leave">
+                <svg xmlns="http://www.w3.org/2000/svg" v-for="index in 5" :key="index"
+                    class="size-[19px] transform-[translateY(-2px)] transition ease-in-out duration-100 fill-gray-400/50 cursor-pointer"
+                    :class="{
+                        'fill-orange-600': index <= Math.ceil(active_index),
+                        'scale-115': index == active_index && !is_mouse_leave
+                    }" @mouseover="mouse_in(index)" @click="selectRate(index)" viewBox="0 0 24 24" width="512"
+                    height="512">
+                    <path
+                        d="M1.327,12.4,4.887,15,3.535,19.187A3.178,3.178,0,0,0,4.719,22.8a3.177,3.177,0,0,0,3.8-.019L12,20.219l3.482,2.559a3.227,3.227,0,0,0,4.983-3.591L19.113,15l3.56-2.6a3.227,3.227,0,0,0-1.9-5.832H16.4L15.073,2.432a3.227,3.227,0,0,0-6.146,0L7.6,6.568H3.231a3.227,3.227,0,0,0-1.9,5.832Z">
+                    </path>
+                </svg>
             </div>
         </template>
         <template v-else>

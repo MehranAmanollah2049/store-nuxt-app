@@ -24,7 +24,7 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  modules: ['@pinia/nuxt', '@nuxt/image','nuxt-rating'],
+  modules: ['@pinia/nuxt', '@nuxt/image'],
   plugins: [
     '~/plugins/api.js',
   ],
