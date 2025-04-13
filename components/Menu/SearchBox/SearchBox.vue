@@ -5,39 +5,37 @@ import autoAnimate from "@formkit/auto-animate"
 let isActive = ref(false)
 let search = ref('')
 let isLoading = ref(false)
-let total = ref('0')
+let total = ref(0)
 let products = ref([])
 
 const { $HttpRequest } = useNuxtApp()
 
+let typingTimeout = null
+
 let send_request = () => {
-    if (search.value != '') {
-        isLoading.value = true;
+    clearTimeout(typingTimeout)
 
-        $HttpRequest(`/search?search=${search.value}`)
-            .then(res => {
-                isLoading.value = false;
+    typingTimeout = setTimeout(() => {
+        if (search.value != '') {
+            isLoading.value = true
 
-                if (res) {
-                    total.value = res.total
-                    products.value = res.data
-                }
-            })
-            .catch(err => {
-                isLoading.value = false;
-            })
-    }
-    else {
-        products.value = []
-        total.value = 0
-    }
-}
+            $HttpRequest(`/search?search=${search.value}`)
+                .then(res => {
+                    isLoading.value = false
 
-const backspaceHandler = () => {
-    if (search.value.length <= 0) {
-        products.value = []
-        total.value = 0
-    }
+                    if (res) {
+                        total.value = res.total
+                        products.value = res.data
+                    }
+                })
+                .catch(err => {
+                    isLoading.value = false
+                })
+        } else {
+            products.value = []
+            total.value = 0
+        }
+    }, 700) // 3 seconds delay
 }
 
 const remove_search = () => {
@@ -50,14 +48,15 @@ const remove_search = () => {
 const dropdown = ref()
 
 onMounted(() => {
-  autoAnimate(dropdown.value)
+    autoAnimate(dropdown.value)
 })
 
 </script>
 
 <template>
     <div class="w-[calc(100%-83px)] h-[40px] relative z-100 peer group" :class="{ 'active': isActive }">
-        <div ref="dropdown" class="w-full max-[800px]:group-[.active]:w-[calc(100%+80px)] max-[800px]:group-[.active]:-right-[78px] absolute right-0 bg-white rounded-lg min-h-full overflow-x-hidden overflow-y-auto max-h-[calc(100vh-80px)] transition-custom group-[.active]:px-3">
+        <div ref="dropdown"
+            class="w-full max-[800px]:group-[.active]:w-[calc(100%+80px)] max-[800px]:group-[.active]:-right-[78px] absolute right-0 bg-white rounded-lg min-h-full overflow-x-hidden overflow-y-auto max-h-[calc(100vh-80px)] transition-custom group-[.active]:px-3">
             <div @click="isActive = true"
                 class="w-full h-[40px] relative rounded-md transition-custom border-b border-transparent px-3 pr-9 center bg-gray-200/50 group-[.active]:rounded-none group-[.active]:h-[51px] group-[.active]:bg-white group-[.active]:border-gray-200">
                 <svg class="size-4 absolute right-[13px] transform-[translateY(-0.3px)] group-[.active]:transform-[translateY(-0.5px)]"
@@ -68,14 +67,13 @@ onMounted(() => {
                         stroke-linejoin="round"></path>
                 </svg>
                 <input type="text" class="w-full h-full outline-none text-title text-[14px]"
-                    placeholder="دنبال چی میگردی...؟" v-model="search" @input="send_request"
-                    @input.backspace="backspaceHandler" @keydown.backspace="backspaceHandler">
+                    placeholder="دنبال چی میگردی...؟" v-model="search" @input="send_request">
             </div>
             <div class="w-full py-4 px-3" v-if="isActive">
                 <div class="w-full flex items-center justify-between">
                     <p class="text-[14px] text-gray-500">{{ search.length != 0 ? total : 0 }} کالا</p>
                     <nuxt-link :to="{ path: '/products', query: { search } }" @click="isActive = false"
-                        class="text-theme text-[14px] center" v-if="search.length != 0 && total > 4">
+                        class="text-theme text-[14px] center" v-if="search.length > 0 && total > 4">
                         مشاهده همه
                         <svg class="size-4 fill-theme transform-[translateY(-1px)]">
                             <use xlink:href="#chevronLeft">
@@ -94,7 +92,7 @@ onMounted(() => {
                         <Loading />
                         در حال جستجو...
                     </div>
-                    <p class="w-full text-[15px] text-title font-medium" v-else-if="search.length == 0">شروع به جست
+                    <p class="w-full text-[15px] text-title font-medium" v-else-if="search.length <= 0">شروع به جست
                         و جو کنید...</p>
                     <p class="w-full text-[15px] text-title font-medium"
                         v-else-if="search.length != 0 && products.length == 0">موردی یافت نشد</p>
