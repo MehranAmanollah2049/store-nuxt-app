@@ -1,8 +1,1 @@
-
-*.vue linguist-language=Vue
-*.js linguist-language=JavaScript
-*.ts linguist-language=TypeScript
-*.php linguist-language=PHP
-
-frontend/* linguist-detectable=true
-backend/* linguist-detectable=false
+* linguist-language=Vue
