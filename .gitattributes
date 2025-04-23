@@ -9,3 +9,7 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+frontend/* linguist-detectable=true
+backend/* linguist-detectable=true
+*.vue linguist-language=Vue
+*.php linguist-language=PHP
